@@ -59,4 +59,4 @@ if __name__ == '__main__':
         for url in urls:
             x = threading.Thread(target=ddos_new_site, args = (url, proxy))
             x.start()
-        time.sleep(10)
+        time.sleep(5)
