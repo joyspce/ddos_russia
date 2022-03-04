@@ -20,7 +20,7 @@ class ddosRussia:
     async def fetch_url_data(self, session):
         try:
             print(self.proxy)
-            async with session.get(self.url, timeout=10, proxy=self.proxy) as response:
+            async with session.get(self.url, timeout=10) as response:
                 resp = await response.read()
                 # print(resp)
 
