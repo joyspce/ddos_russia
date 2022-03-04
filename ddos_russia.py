@@ -21,7 +21,7 @@ class ddosRussia:
         try:
             async with session.get(self.url, timeout=10, proxy=self.proxy) as response:
                 resp = await response.read()
-                print("asd", resp)
+                # print(resp)
 
                 return response.ok
         except Exception as e:
